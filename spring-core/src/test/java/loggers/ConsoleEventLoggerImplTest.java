@@ -1,7 +1,7 @@
 package loggers;
 
-import com.spring.core.loggers.ConsoleEventLoggerImpl;
-import com.spring.core.loggers.Event;
+import core.loggers.ConsoleEventLoggerImpl;
+import core.loggers.Event;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
