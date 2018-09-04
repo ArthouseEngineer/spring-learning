@@ -1,4 +1,4 @@
-package com.spring.core.entities;
+package core.entities;
 
 public class Client {
     private int id;

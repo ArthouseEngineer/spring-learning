@@ -21,8 +21,8 @@
         </plugins>
     </build>
     <modules>
-        <module>spring-jdbc</module>
         <module>spring-jdbc-examples</module>
+        <module>spring-core</module>
     </modules>
 
     <dependencies>

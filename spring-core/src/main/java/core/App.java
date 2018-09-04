@@ -1,9 +1,9 @@
-package com.spring.core;
+package core;
 
-import com.spring.core.entities.Client;
-import com.spring.core.loggers.Event;
-import com.spring.core.loggers.EventLogger;
-import com.spring.core.loggers.EventType;
+import core.entities.Client;
+import core.loggers.Event;
+import core.loggers.EventLogger;
+import core.loggers.EventType;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;

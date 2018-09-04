@@ -1,4 +1,4 @@
-package com.spring.core.loggers;
+package core.loggers;
 
 import org.apache.commons.io.FileUtils;
 
