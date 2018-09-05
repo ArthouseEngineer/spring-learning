@@ -19,6 +19,7 @@ public class App {
 
 
     public static void main(String[] args) {
+
         ConfigurableApplicationContext applicationContext = new ClassPathXmlApplicationContext("spring.xml");
 
         App app = applicationContext.getBean(App.class);

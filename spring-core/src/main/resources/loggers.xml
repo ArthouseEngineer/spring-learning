@@ -6,14 +6,15 @@
        http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd"
 >
 
+    <import resource="database.xml"/>
 
-    <bean id="consoleEventLogger" class="com.spring.core.loggers.ConsoleEventLoggerImpl"/>
+    <bean id="consoleEventLogger" class="core.loggers.ConsoleEventLoggerImpl"/>
 
-    <bean id="fileEventLogger" class="com.spring.core.loggers.FileEventLogger" init-method="init">
+    <bean id="fileEventLogger" class="core.loggers.FileEventLogger" init-method="init">
         <constructor-arg value="target/eventLog.txt"/>
     </bean>
 
-    <bean id="cacheFileEventLogger" class="com.spring.core.loggers.CacheFileEventLogger" parent="fileEventLogger"
+    <bean id="cacheFileEventLogger" class="core.loggers.CacheFileEventLogger" parent="fileEventLogger"
           destroy-method="destroy">
         <constructor-arg index="1" value="5"/>
     </bean>
@@ -22,9 +23,10 @@
     <util:list id="loggersList">
         <ref bean="fileEventLogger"/>
         <ref bean="consoleEventLogger"/>
+        <ref bean="dbLogger"/>
     </util:list>
 
-    <bean id="combinedEventLogger" class="com.spring.core.loggers.CombinedEventLogger">
+    <bean id="combinedEventLogger" class="core.loggers.CombinedEventLogger">
         <constructor-arg ref="loggersList"/>
     </bean>
 
