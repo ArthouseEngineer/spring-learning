@@ -16,16 +16,12 @@ public class Main {
 
         DeveloperDaoImpl developerDao = applicationContext.getBean(DeveloperDaoImpl.class);
 
-
         System.out.println("===============Creating new records to DB===============");
-        developerDao.createDeveloper("Vasya","Java middle",6);
+        developerDao.createDeveloper("Vladislav","Java middle",6);
         developerDao.createDeveloper("Andrey", "C# Developer", 2);
         developerDao.createDeveloper("Alina", "UI Designer", 3);
 
         System.out.println("========Developers List========");
-        List developers = developerDao.listDevelopers();
-        for (Object developer : developers) {
-            System.out.println(developer.toString());
-        }
+        developerDao.listDevelopers().stream().forEach(System.out::println);
     }
 }

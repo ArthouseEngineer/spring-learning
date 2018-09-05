@@ -50,4 +50,10 @@ public class DeveloperDaoImpl implements DeveloperDao {
         jdbcTemplate.update(SQL, name, speciality, experience, id);
         System.out.println("Developer with id: " + id + " successfully updated.");
     }
+
+    public void removeAll() {
+        String SQL = "TRUNCATE DEVELOPERS";
+        jdbcTemplate.update(SQL);
+        System.out.println("Table was clean successful");
+    }
 }
