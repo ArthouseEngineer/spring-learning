@@ -9,7 +9,7 @@
         <property name="username" value="nikita"/>
         <property name="password" value="520860"/>
     </bean>
-
+    
     <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
         <property name="dataSource" ref="dataSource"/>
     </bean>
@@ -17,4 +17,5 @@
     <bean id="jdbcDeveloperDao" class="jdbc.dao.DeveloperDaoImpl">
         <constructor-arg ref="jdbcTemplate"/>
     </bean>
+
 </beans>
