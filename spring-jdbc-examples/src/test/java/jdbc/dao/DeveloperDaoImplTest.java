@@ -1,16 +1,15 @@
 package jdbc.dao;
 
 import org.junit.After;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.transaction.TransactionDefinition;
-import org.springframework.transaction.support.DefaultTransactionDefinition;
-import org.springframework.transaction.support.TransactionTemplate;
 
 import java.util.List;
+
+
+import static org.junit.Assert.*;
 
 public class DeveloperDaoImplTest {
 
@@ -27,12 +26,13 @@ public class DeveloperDaoImplTest {
     }
 
     @Test
-    public void testFindDeveloper() {
+    public void testSelectDeveloper() {
         DeveloperDaoImpl developerDao = context.getBean(DeveloperDaoImpl.class);
 
         List developersList = developerDao.listDevelopers();
-        Assert.assertNotNull(developersList);
-        Assert.assertTrue(developersList.size() == 3);
+        assertNotNull(developersList);
+        assertTrue(developersList.size() == 3);
+        assertEquals(developersList.get(0).toString().trim(),developerDao.getDeveloperById(1).toString().trim());
     }
 
 }
