@@ -10,7 +10,10 @@ public interface DeveloperDao {
 
     List listDevelopers();
 
+    List listDeveloperProjects(Integer id);
+
     void removeDeveloper(Integer id);
 
     void updateDeveloper(Integer id, String name, String speciality, Integer experience);
+
 }

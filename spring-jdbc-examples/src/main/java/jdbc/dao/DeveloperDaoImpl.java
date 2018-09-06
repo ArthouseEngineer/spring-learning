@@ -1,6 +1,8 @@
 package jdbc.dao;
 
+import jdbc.model.Developer;
 import jdbc.util.DeveloperMapper;
+import jdbc.util.ProjectMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import java.util.List;
@@ -26,15 +28,20 @@ public class DeveloperDaoImpl implements DeveloperDao {
     @Override
     public Object getDeveloperById(Integer id) {
         String SQL = "SELECT * FROM DEVELOPERS WHERE id = ?";
-        Object developer = jdbcTemplate.queryForObject(SQL, new Object[]{id}, new DeveloperMapper());
+        Developer developer = jdbcTemplate.queryForObject(SQL, new Object[]{id}, new DeveloperMapper());
         return developer;
     }
 
     @Override
     public List listDevelopers() {
         String SQL = "SELECT * FROM DEVELOPERS";
-        List developers = jdbcTemplate.query(SQL, new DeveloperMapper());
-        return developers;
+        return jdbcTemplate.query(SQL, new DeveloperMapper());
+    }
+
+    @Override
+    public List listDeveloperProjects(Integer id) {
+        String SQL = "SELECT * FROM PROJECTS WHERE DEVELOPERS_ID = " + id;
+        return jdbcTemplate.query(SQL, new ProjectMapper());
     }
 
     @Override
